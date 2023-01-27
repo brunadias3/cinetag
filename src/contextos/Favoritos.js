@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 export const FavoritosContext = createContext();
 FavoritosContext.displayName = 'Favoritos';
 
-export function FavoritosProvider({ children }) {
+export default function FavoritosProvider({ children }) {
     const [favorito, setFavorito] = useState([]);
 
     return (
@@ -18,7 +18,7 @@ export function useFavoritoContext() {
     const { favorito, setFavorito } = useContext(FavoritosContext);
 
     function adicionarFavorito(novoFavorito) {
-        const favoritoRepetido = favorito.some(item => item.id === novoFavorito)
+        const favoritoRepetido = favorito.some(item => item.id === novoFavorito.id)
 
         let novaLista = [...favorito]
 
