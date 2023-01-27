@@ -1,6 +1,3 @@
-import React from 'react'
-import Cabecalho from '../../components/Cabecalho'
-import Rodape from 'components/Rodape'
 import Banner from 'components/Banner'
 import Titulo from 'components/Titulo'
 import Card from 'components/Card'
@@ -10,8 +7,6 @@ import style from './Inicio.module.css'
 export default function Inicio() {
   return (
     <>
-      <Cabecalho />
-
       <Banner imagem="home" />
       
       <Titulo>
@@ -24,7 +19,6 @@ export default function Inicio() {
         })}
       </section>
 
-      <Rodape />
     </>
   )
 }
