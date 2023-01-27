@@ -3,8 +3,10 @@ import React from 'react'
 import Banner from 'components/Banner'
 import Titulo from 'components/Titulo'
 import Card from 'components/Card'
+import { useFavoritoContext } from 'contextos/Favoritos'
 
 export default function Favoritos() {
+  const { favorito } = useFavoritoContext();
   return (
     <>
       <Banner imagem="favoritos" />
@@ -14,9 +16,11 @@ export default function Favoritos() {
       </Titulo>
 
       <section className={style.container} >
-        <Card id='2' titulo='Gato bonifácio' capa='uu' />
+        {favorito.map((fav) => {
+          return <Card {...fav} key={fav.id} />
+        })}
       </section>
-      
+
     </>
   )
 }
