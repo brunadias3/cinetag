@@ -4,12 +4,17 @@ import React from 'react'
 import Titulo from 'components/Titulo'
 import videos from 'json/db.json'
 import { useParams } from 'react-router-dom'
+import NaoEncontrada from 'pages/NaoEncontrada'
 
 export default function Player() {
     const parametros = useParams();
     const video = videos.find((video) => {
         return video.id === Number(parametros.id)
     })
+
+    if(!video) {
+        return <NaoEncontrada />
+    }
     return (
         <>
             <Banner imagem="player" />
